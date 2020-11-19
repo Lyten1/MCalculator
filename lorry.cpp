@@ -1,26 +1,24 @@
 #include "lorry.h"
-#include <QDate>
+
 
 Lorry::Lorry()
 {
 
 }
 
-void Lorry::getData(float _cina, float _val, int _volume, QString _typ_oil, int _weight, int _year, bool _eur_1)
+void Lorry::getData(float _cina, float _val, int _volume, QString _typ_oil, float _weight, int _year, bool _eur_1)
 {
-    Vehicle::getData(_cina,_val);
+    Vehicle::getData(_cina,_val,_year);
     volume = _volume;
     typ_oil = _typ_oil;
     weight = _weight;
-    year = _year;
     eur_1 = _eur_1;
 
 }
 
 void Lorry::Calculate()
 {
-    QDate date = QDate::currentDate();
-    year = date.year() - year;
+     Vehicle::getYear();
 
     // ------------- Ставка мито ---------------
     if (typ_oil == "Бензиновий") {

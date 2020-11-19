@@ -26,6 +26,20 @@ private slots:
 
     void on_BBcalc_clicked();
 
+    void on_BMcalc_clicked();
+
+    void on_BBclear_clicked();
+
+    void on_BMclear_clicked();
+
+    void on_BHcalc_clicked();
+
+    void on_BHclear_clicked();
+
+    void on_BTcalc_clicked();
+
+    void on_BTclear_clicked();
+
 private:
     float val_t;
 

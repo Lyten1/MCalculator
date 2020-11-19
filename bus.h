@@ -7,7 +7,7 @@ class Bus: public Vehicle
 {
     friend class MainWindow;
 protected:
-    int volume, year;
+    int volume;
     QString typ_oil;
     bool eur_1;
 public:
