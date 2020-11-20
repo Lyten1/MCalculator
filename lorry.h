@@ -13,6 +13,7 @@ protected:
 public:
     Lorry();
     void getData(float _cina, float _val, int _volume, QString _typ_oil, float _weight, int _year, bool _eur_1);
+
     void Calculate();
 };
 

@@ -40,6 +40,8 @@ private slots:
 
     void on_BTclear_clicked();
 
+    void on_cBCoil_activated(const QString &arg1);
+
 private:
     float val_t;
 

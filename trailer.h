@@ -7,7 +7,7 @@ class Trailer: public Vehicle
 {
     float weight;
     bool eur_1;
-   QString use;
+   QString typ;
 public:
     Trailer();
     void getData(float _cina, float _val, float _weight, bool _eur_1, QString _use);

@@ -80,9 +80,9 @@ void Bus::Calculate()
 
 
 
-    cina_g = cina * val;
+    cina_g = cina * val; // замість валюти поточна вибрана
     muto = cina_g * st_muto;
-    acc = volume * st_acc;
+    acc = volume * st_acc * val; // замість валюти євро
     pdv = (cina_g + muto + acc) * 0.2;
     result_clear = muto + acc + pdv;
     res_grn = result_clear + cina_g;

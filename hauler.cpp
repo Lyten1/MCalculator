@@ -25,5 +25,9 @@ void Hauler::Calculate()
 
     cina_g = cina * val;
     muto = cina_g * st_muto;
+    acc = 0;
+    pdv = (cina_g + muto + acc) * 0.2;
+    result_clear = muto + acc + pdv;
+    res_grn = result_clear + cina_g;
 
 }

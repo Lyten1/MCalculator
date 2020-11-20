@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Car">
      <attribute name="title">
@@ -69,7 +69,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>51</y>
+        <y>47</y>
         <width>50</width>
         <height>13</height>
        </rect>
@@ -77,11 +77,14 @@
       <property name="font">
        <font>
         <family>MS Reference Sans Serif</family>
-        <pointsize>11</pointsize>
+        <pointsize>10</pointsize>
        </font>
       </property>
       <property name="text">
        <string>Об'єм:</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="ECvolume">
@@ -172,8 +175,8 @@
      <widget class="QComboBox" name="cBCtyp">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>20</y>
+        <x>310</x>
+        <y>10</y>
         <width>91</width>
         <height>22</height>
        </rect>
@@ -197,9 +200,9 @@
      <widget class="QLineEdit" name="ECyear">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>80</y>
-        <width>61</width>
+        <x>260</x>
+        <y>55</y>
+        <width>81</width>
         <height>21</height>
        </rect>
       </property>
@@ -207,8 +210,8 @@
      <widget class="QLabel" name="LCyear">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>60</y>
+        <x>250</x>
+        <y>37</y>
         <width>101</width>
         <height>21</height>
        </rect>
@@ -232,9 +235,9 @@
      <widget class="QLineEdit" name="ECyear_2">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>80</y>
-        <width>61</width>
+        <x>360</x>
+        <y>55</y>
+        <width>81</width>
         <height>21</height>
        </rect>
       </property>
@@ -242,8 +245,8 @@
      <widget class="QLabel" name="LCyear_2">
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>60</y>
+        <x>360</x>
+        <y>37</y>
         <width>91</width>
         <height>16</height>
        </rect>
@@ -261,7 +264,7 @@
      <widget class="QCheckBox" name="cBCeur_1">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>190</x>
         <y>50</y>
         <width>72</width>
         <height>19</height>
@@ -274,9 +277,9 @@
      <widget class="QComboBox" name="cBCoil">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>80</y>
-        <width>111</width>
+        <x>10</x>
+        <y>85</y>
+        <width>101</width>
         <height>22</height>
        </rect>
       </property>
@@ -300,6 +303,76 @@
         <string>Електричний</string>
        </property>
       </item>
+      <item>
+       <property name="text">
+        <string>Інший</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Гібрид</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="cBCoil_2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>85</y>
+        <width>191</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="editable">
+       <bool>false</bool>
+      </property>
+      <property name="maxVisibleItems">
+       <number>10</number>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <item>
+       <property name="text">
+        <string>--- Оберіть вид гібрида ---</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Бен/Елек гібрид</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Диз/Елек гібрид</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Елек з д.в.з. для генератора</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="LCel">
+      <property name="geometry">
+       <rect>
+        <x>147</x>
+        <y>54</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>КВт</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="Lorry">
@@ -1620,10 +1693,27 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="action_history"/>
+    <addaction name="action_val"/>
    </widget>
    <addaction name="menuMCalculator"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="text">
+    <string>Історія</string>
+   </property>
+  </action>
+  <action name="action_val">
+   <property name="text">
+    <string>Валюти</string>
+   </property>
+  </action>
+  <action name="action_history">
+   <property name="text">
+    <string>Історія</string>
+   </property>
+  </action>
  </widget>
  <tabstops>
   <tabstop>VehicleChoose</tabstop>
@@ -1632,6 +1722,7 @@
   <tabstop>cBCoil</tabstop>
   <tabstop>cBCval</tabstop>
   <tabstop>cBCeur_1</tabstop>
+  <tabstop>cBCoil_2</tabstop>
   <tabstop>cBCtyp</tabstop>
   <tabstop>ECyear</tabstop>
   <tabstop>ECyear_2</tabstop>
@@ -1673,6 +1764,7 @@
   <tabstop>ETweight</tabstop>
   <tabstop>cBTval</tabstop>
   <tabstop>cBTeur_1</tabstop>
+  <tabstop>cBTtyp</tabstop>
   <tabstop>cBTuse</tabstop>
   <tabstop>BTcalc</tabstop>
   <tabstop>BTclear</tabstop>

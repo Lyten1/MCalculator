@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->cBCoil_2->setHidden(true);
-    ui->LCel->setHidden(true);
+
 }
 
 MainWindow::~MainWindow()
@@ -29,15 +29,8 @@ void MainWindow::on_BCcalc_clicked()
 {
     Car Obj;
 
-      val_t = 31;
+    //Obj.getData();
 
-    Obj.getData(ui->ECprice->text().toFloat(), val_t, ui->ECvolume->text().toInt(), ui->cBCoil->currentText(), ui->cBCoil_2->currentText(), ui->ECyear->text().toInt(), ui->ECyear_2->text().toInt(), ui->cBCeur_1->isChecked());
-    Obj.Calculate();
-    ui->Emuto->setText(QString::number(Obj.muto));
-    ui->Eacc->setText(QString::number(Obj.acc));
-    ui->Epdv->setText(QString::number(Obj.pdv));
-    ui->Eresult->setText(QString::number(Obj.result_clear));
-    ui->Egrn->setText(QString::number(Obj.res_grn));
 }
 
 void MainWindow::on_BCclear_clicked()
@@ -190,6 +183,6 @@ void MainWindow::on_cBCoil_activated(const QString &arg1)
     if (arg1 == "Гібрид") ui->cBCoil_2->setHidden(false);
     else ui->cBCoil_2->setHidden(true);
 
-    if (arg1 == "Електричний") ui->LCel->setHidden(false);
-    else ui->LCel->setHidden(true);
+//    if (arg1 == "Електричний") ui->LCvolume->setText("Об'єм");
+//    else ui->LCvolume->setText("Об'єм:");
 }
