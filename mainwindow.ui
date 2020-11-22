@@ -10,6 +10,18 @@
     <height>379</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>448</width>
+    <height>379</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>448</width>
+    <height>379</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>MCalculator</string>
   </property>
@@ -264,8 +276,8 @@
      <widget class="QCheckBox" name="cBCeur_1">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>50</y>
+        <x>230</x>
+        <y>15</y>
         <width>72</width>
         <height>19</height>
        </rect>
@@ -1693,23 +1705,18 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="action_history"/>
+    <addaction name="action_h"/>
     <addaction name="action_val"/>
    </widget>
    <addaction name="menuMCalculator"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action">
-   <property name="text">
-    <string>Історія</string>
-   </property>
-  </action>
   <action name="action_val">
    <property name="text">
     <string>Валюти</string>
    </property>
   </action>
-  <action name="action_history">
+  <action name="action_h">
    <property name="text">
     <string>Історія</string>
    </property>

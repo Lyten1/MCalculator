@@ -5,7 +5,7 @@ Motocycle::Motocycle()
 
 }
 
-void Motocycle::getData(float _cina, float _val, int _volume, QString _typ_oil, bool _eur_1)
+void Motocycle::getData(float _cina, float _val, float _volume, QString _typ_oil, bool _eur_1)
 {
     Vehicle::getData(_cina,_val,NULL);
     volume = _volume;

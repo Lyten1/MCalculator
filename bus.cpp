@@ -6,7 +6,7 @@ Bus::Bus()
 
 }
 
-void Bus::getData(float _cina, float _val, int _volume, QString _typ_oil, int _year, bool _eur_1)
+void Bus::getData(float _cina, float _val, float _volume, QString _typ_oil, int _year, bool _eur_1)
 {
     Vehicle::getData(_cina,_val,_year);
     volume = _volume;

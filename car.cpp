@@ -6,7 +6,7 @@ Car::Car()
 
 }
 
-void Car::getData(float _cina, float _val, int _volume, QString _typ_oil, QString _typ_oil_elec, int _date_first_reg, int _dateOfCreate, bool _eur_1)
+void Car::getData(float _cina, float _val, float _volume, QString _typ_oil, QString _typ_oil_elec, int _date_first_reg, int _dateOfCreate, bool _eur_1)
 {
     Vehicle::getData(_cina,_val,NULL);
     volume = _volume;
@@ -22,13 +22,14 @@ void Car::getYears()
 {
     QDate date = QDate::currentDate();
     date_first_reg = date.year() - date_first_reg;
+
+
     date = QDate::currentDate();
-    dateOfCreate = date.year() - dateOfCreate;
+    koef = date.year() - dateOfCreate - 1;
+    if (koef < 1) koef = 1;
+    if (koef > 15) koef = 15;
 
 }
-
-
-
 void Car::Calculate()
 {
 
@@ -38,7 +39,7 @@ void Car::Calculate()
         if (eur_1 == 1){
             if (volume < 1000){
 
-                if (year == 0) {
+                if (date_first_reg == 0) {
                     st_muto = 0.038;
                 }
                 else st_muto = 0.055;
@@ -51,7 +52,7 @@ void Car::Calculate()
                 else st_muto = 0.038;
             }
             else{
-                if (year == 0) st_muto = 0.034;
+                if (date_first_reg == 0) st_muto = 0.034;
                 else st_muto = 0.055;
             }
         }
@@ -63,7 +64,7 @@ void Car::Calculate()
         if(eur_1 == 1){
             if (volume < 2500) st_muto = 0.055;
             else {
-                if (year == 0) st_muto = 0.038;
+                if (date_first_reg == 0) st_muto = 0.038;
                 else st_muto = 0.055;
             }
         }
@@ -83,7 +84,7 @@ void Car::Calculate()
     else if (typ_oil == "Гібрид" && typ_oil_elec == "Бен/Елек гібрид"){
         st_muto = 0.1;
         if (eur_1 == 1){
-            if (year == 0){
+            if (date_first_reg == 0){
                 if(volume > 3000){
                     st_muto = 0.034;
                     st_acc = 100;
@@ -131,7 +132,7 @@ void Car::Calculate()
     else if ((typ_oil == "Гібрид" && typ_oil_elec == "Елек з д.в.з. для генератора") || typ_oil == "Інший"){
         acc = 100 * val; // val -> eur
     }
-    else acc = (volume/1000) * st_acc * koef * val; // val -> eur
+    else acc = volume/1000 * st_acc * koef * val; // val -> eur
 
     pdv = (cina_g + muto + acc) * 0.2;
     result_clear = muto + acc + pdv;

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include <vehicle.h>
 #include <car.h>
 #include <lorry.h>
@@ -17,6 +18,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->cBCoil_2->setHidden(true);
     ui->LCel->setHidden(true);
+
+
+    sWindow = new History();
+    vWindow = new Currency();
+
 }
 
 MainWindow::~MainWindow()
@@ -29,15 +35,17 @@ void MainWindow::on_BCcalc_clicked()
 {
     Car Obj;
 
-      val_t = 31;
+      val_t = 33.4353;
 
-    Obj.getData(ui->ECprice->text().toFloat(), val_t, ui->ECvolume->text().toInt(), ui->cBCoil->currentText(), ui->cBCoil_2->currentText(), ui->ECyear->text().toInt(), ui->ECyear_2->text().toInt(), ui->cBCeur_1->isChecked());
+    Obj.getData(ui->ECprice->text().toFloat(), val_t, ui->ECvolume->text().toFloat(), ui->cBCoil->currentText(), ui->cBCoil_2->currentText(), ui->ECyear->text().toInt(), ui->ECyear_2->text().toInt(), ui->cBCeur_1->isChecked());
     Obj.Calculate();
     ui->Emuto->setText(QString::number(Obj.muto));
     ui->Eacc->setText(QString::number(Obj.acc));
     ui->Epdv->setText(QString::number(Obj.pdv));
     ui->Eresult->setText(QString::number(Obj.result_clear));
     ui->Egrn->setText(QString::number(Obj.res_grn));
+
+
 }
 
 void MainWindow::on_BCclear_clicked()
@@ -65,7 +73,7 @@ void MainWindow::on_BLcalc_clicked()
 
     if (ui->cBLtyp->currentText() == "Нові") ui->ELyear->setText(0);
 
-    Obj.getData(ui->ELprice->text().toFloat(),val_t,ui->ELvolume->text().toInt(),ui->cBLoil->currentText(),ui->ELweight->text().toFloat(),ui->ELyear->text().toInt(),ui->cBLeur_1->isChecked());
+    Obj.getData(ui->ELprice->text().toFloat(),val_t,ui->ELvolume->text().toFloat(),ui->cBLoil->currentText(),ui->ELweight->text().toFloat(),ui->ELyear->text().toInt(),ui->cBLeur_1->isChecked());
     Obj.Calculate();
     ui->Emuto->setText(QString::number(Obj.muto));
     ui->Eacc->setText(QString::number(Obj.acc));
@@ -94,7 +102,7 @@ void MainWindow::on_BBcalc_clicked()
 
       if (ui->cBBtyp->currentText() == "Нові") ui->EByear->setText(0);
 
-      Obj.getData(ui->EBprice->text().toFloat(),val_t,ui->EBvolume->text().toInt(),ui->cBBoil->currentText(),ui->EByear->text().toInt(),ui->cBBeur_1->isChecked());
+      Obj.getData(ui->EBprice->text().toFloat(),val_t,ui->EBvolume->text().toFloat(),ui->cBBoil->currentText(),ui->EByear->text().toInt(),ui->cBBeur_1->isChecked());
       Obj.Calculate();
       ui->Emuto->setText(QString::number(Obj.muto));
       ui->Eacc->setText(QString::number(Obj.acc));
@@ -121,7 +129,7 @@ void MainWindow::on_BMcalc_clicked()
 
       if (ui->cBBtyp->currentText() == "Нові") ui->EByear->setText(0);
 
-      Obj.getData(ui->EMprice->text().toFloat(),val_t,ui->EMvolume->text().toInt(),ui->cBMoil->currentText(),ui->cBMeur_1->isChecked());
+      Obj.getData(ui->EMprice->text().toFloat(),val_t,ui->EMvolume->text().toFloat(),ui->cBMoil->currentText(),ui->cBMeur_1->isChecked());
       Obj.Calculate();
       ui->Emuto->setText(QString::number(Obj.muto));
       ui->Eacc->setText(QString::number(Obj.acc));
@@ -192,4 +200,16 @@ void MainWindow::on_cBCoil_activated(const QString &arg1)
 
     if (arg1 == "Електричний") ui->LCel->setHidden(false);
     else ui->LCel->setHidden(true);
+}
+
+
+
+void MainWindow::on_action_h_triggered()
+{
+    sWindow->show();
+}
+
+void MainWindow::on_action_val_triggered()
+{
+    vWindow->show();
 }

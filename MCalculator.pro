@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,7 +18,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     bus.cpp \
     car.cpp \
+    currency.cpp \
     hauler.cpp \
+    history.cpp \
     lorry.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -29,7 +31,9 @@ SOURCES += \
 HEADERS += \
     bus.h \
     car.h \
+    currency.h \
     hauler.h \
+    history.h \
     lorry.h \
     mainwindow.h \
     motocycle.h \
@@ -37,6 +41,8 @@ HEADERS += \
     vehicle.h
 
 FORMS += \
+    currency.ui \
+    history.ui \
     mainwindow.ui
 
 # Default rules for deployment.

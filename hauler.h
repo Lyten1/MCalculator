@@ -7,6 +7,7 @@ class Hauler: public Vehicle
 {
     bool eur_1;
     QString use;
+
 public:
     Hauler();
     void getData(float _cina, float _val, QString _use, bool _eur_1);

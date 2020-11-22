@@ -3,6 +3,14 @@
 
 #include <QMainWindow>
 
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QtSql/QSqlQueryModel>
+
+
+#include <history.h>
+#include <currency.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -42,11 +50,15 @@ private slots:
 
     void on_cBCoil_activated(const QString &arg1);
 
+    void on_action_h_triggered();
+
+    void on_action_val_triggered();
+
 private:
     float val_t;
-
     Ui::MainWindow *ui;
-
+    History *sWindow;
+    Currency *vWindow;
 
 };
 #endif // MAINWINDOW_H
