@@ -9,6 +9,7 @@
 #include <hauler.h>
 #include <trailer.h>
 
+#include <history.h>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -19,10 +20,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->cBCoil_2->setHidden(true);
     ui->LCel->setHidden(true);
 
+    db = new DataBase();
+    db->connectToDataBase();
 
     sWindow = new History();
     vWindow = new Currency();
 
+    val_t = 33.4353;
 }
 
 MainWindow::~MainWindow()
@@ -35,7 +39,7 @@ void MainWindow::on_BCcalc_clicked()
 {
     Car Obj;
 
-      val_t = 33.4353;
+
 
     Obj.getData(ui->ECprice->text().toFloat(), val_t, ui->ECvolume->text().toFloat(), ui->cBCoil->currentText(), ui->cBCoil_2->currentText(), ui->ECyear->text().toInt(), ui->ECyear_2->text().toInt(), ui->cBCeur_1->isChecked());
     Obj.Calculate();
@@ -46,7 +50,25 @@ void MainWindow::on_BCcalc_clicked()
     ui->Egrn->setText(QString::number(Obj.res_grn));
 
 
+    // --------- History ----------
+
+    QVariantList data;
+            data.append("Легковий");
+            data.append(ui->ECprice->text());
+            data.append(ui->ECvolume->text());
+            data.append("None");
+            data.append(ui->ECyear->text());
+            data.append(ui->cBCoil->currentText());
+            data.append(ui->Eresult->text());
+            data.append(ui->Eeur->text());
+
+            // Вставляем данные в БД
+            db->inserIntoTable(data);
+
+
 }
+
+
 
 void MainWindow::on_BCclear_clicked()
 {
@@ -69,7 +91,7 @@ void MainWindow::on_BLcalc_clicked()
     //else if (val_tex == "usd") val_t = usd;  // перевірка вибраної валюти
     //else if (val_tex == "zlt") val_t = zlt;  // перевірка вибраної валюти
     //else if (val_tex == "chf") val_t = chf;  // перевірка вибраної валюти
-    val_t = 31;
+
 
     if (ui->cBLtyp->currentText() == "Нові") ui->ELyear->setText(0);
 
@@ -81,6 +103,21 @@ void MainWindow::on_BLcalc_clicked()
     ui->Eresult->setText(QString::number(Obj.result_clear));
     ui->Egrn->setText(QString::number(Obj.res_grn));
 
+
+    // --------- History ----------
+
+    QVariantList data;
+            data.append("Вантажний");
+            data.append(ui->ELprice->text());
+            data.append(ui->ELvolume->text());
+            data.append(ui->ELweight->text());
+            data.append(ui->ELyear->text());
+            data.append(ui->cBLoil->currentText());
+            data.append(ui->Eresult->text());
+            data.append(ui->Eeur->text());
+
+            // Вставляем данные в БД
+            db->inserIntoTable(data);
 
 }
 
@@ -98,7 +135,7 @@ void MainWindow::on_BBcalc_clicked()
 
     Bus Obj;
 
-    val_t = 31;
+
 
       if (ui->cBBtyp->currentText() == "Нові") ui->EByear->setText(0);
 
@@ -110,6 +147,21 @@ void MainWindow::on_BBcalc_clicked()
       ui->Eresult->setText(QString::number(Obj.result_clear));
       ui->Egrn->setText(QString::number(Obj.res_grn));
 
+
+      // --------- History ----------
+
+      QVariantList data;
+              data.append("Автобус");
+              data.append(ui->EBprice->text());
+              data.append(ui->EBvolume->text());
+              data.append("None");
+              data.append(ui->EByear->text());
+              data.append(ui->cBBoil->currentText());
+              data.append(ui->Eresult->text());
+              data.append(ui->Eeur->text());
+
+              // Вставляем данные в БД
+              db->inserIntoTable(data);
 
 }
 
@@ -125,7 +177,7 @@ void MainWindow::on_BMcalc_clicked()
 {
     Motocycle Obj;
 
-    val_t = 31;
+
 
       if (ui->cBBtyp->currentText() == "Нові") ui->EByear->setText(0);
 
@@ -137,6 +189,21 @@ void MainWindow::on_BMcalc_clicked()
       ui->Eresult->setText(QString::number(Obj.result_clear));
       ui->Egrn->setText(QString::number(Obj.res_grn));
 
+
+      // --------- History ----------
+
+      QVariantList data;
+              data.append("Мотоцикл");
+              data.append(ui->EMprice->text());
+              data.append(ui->EMvolume->text());
+              data.append("None");
+              data.append("None");
+              data.append(ui->cBMoil->currentText());
+              data.append(ui->Eresult->text());
+              data.append(ui->Eeur->text());
+
+              // Вставляем данные в БД
+              db->inserIntoTable(data);
 }
 
 void MainWindow::on_BMclear_clicked()
@@ -150,7 +217,7 @@ void MainWindow::on_BHcalc_clicked()
 {
     Hauler Obj;
 
-    val_t = 31;
+
 
       if (ui->cBBtyp->currentText() == "Нові") ui->EByear->setText(0);
 
@@ -161,6 +228,22 @@ void MainWindow::on_BHcalc_clicked()
       ui->Epdv->setText(QString::number(Obj.pdv));
       ui->Eresult->setText(QString::number(Obj.result_clear));
       ui->Egrn->setText(QString::number(Obj.res_grn));
+
+
+      // --------- History ----------
+
+      QVariantList data;
+              data.append("Тягач");
+              data.append(ui->EHprice->text());
+              data.append("None");
+              data.append("None");
+              data.append("None");
+              data.append("None");
+              data.append(ui->Eresult->text());
+              data.append(ui->Eeur->text());
+
+              // Вставляем данные в БД
+              db->inserIntoTable(data);
 }
 
 void MainWindow::on_BHclear_clicked()
@@ -173,7 +256,7 @@ void MainWindow::on_BTcalc_clicked()
 {
     Trailer Obj;
 
-    val_t = 31;
+
 
       if (ui->cBBtyp->currentText() == "Нові") ui->EByear->setText(0);
 
@@ -184,6 +267,21 @@ void MainWindow::on_BTcalc_clicked()
       ui->Epdv->setText(QString::number(Obj.pdv));
       ui->Eresult->setText(QString::number(Obj.result_clear));
       ui->Egrn->setText(QString::number(Obj.res_grn));
+
+      // --------- History ----------
+
+      QVariantList data;
+              data.append("Причіп");
+              data.append(ui->ETprice->text());
+              data.append("None");
+              data.append(ui->ETweight->text());
+              data.append("None");
+              data.append("None");
+              data.append(ui->Eresult->text());
+              data.append(ui->Eeur->text());
+
+              // Вставляем данные в БД
+              db->inserIntoTable(data);
 }
 
 void MainWindow::on_BTclear_clicked()
@@ -206,6 +304,7 @@ void MainWindow::on_cBCoil_activated(const QString &arg1)
 
 void MainWindow::on_action_h_triggered()
 {
+    sWindow->Update();
     sWindow->show();
 }
 

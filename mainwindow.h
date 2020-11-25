@@ -2,12 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-#include <QtSql/QSqlDatabase>
-#include <QtSql/QSqlQuery>
-#include <QtSql/QSqlQueryModel>
+#include <QSqlTableModel>
+#include <QDateTime>
 
 
+#include "database.h"
 #include <history.h>
 #include <currency.h>
 
@@ -54,11 +53,18 @@ private slots:
 
     void on_action_val_triggered();
 
+
+
 private:
     float val_t;
     Ui::MainWindow *ui;
     History *sWindow;
     Currency *vWindow;
+
+    DataBase        *db;
+    QSqlTableModel  *model;
+
+
 
 };
 #endif // MAINWINDOW_H

@@ -19,6 +19,7 @@ SOURCES += \
     bus.cpp \
     car.cpp \
     currency.cpp \
+    database.cpp \
     hauler.cpp \
     history.cpp \
     lorry.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     bus.h \
     car.h \
     currency.h \
+    database.h \
     hauler.h \
     history.h \
     lorry.h \
