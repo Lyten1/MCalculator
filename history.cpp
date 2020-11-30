@@ -12,7 +12,6 @@ History::History(QWidget *parent) :
                      QStringList() << tr("Транспорт")
                                    << tr("Ціна")
                                    << tr("Об'єм")
-                                   << tr("Вага")
                                    << tr("Рік")
                                    << tr("Тип палива")
                                    << tr("Результат")
@@ -65,14 +64,13 @@ void History::createUI()
 
 void History::Update()
 {
-    model->setQuery("SELECT " HISTORY_TYP "," HISTORY_PRICE "," HISTORY_VOLUME "," HISTORY_WEIGHT "," HISTORY_YEAR "," HISTORY_OIL "," HISTORY_RESULT "," HISTORY_RESULTEUR " FROM " HISTORY " ORDER BY id DESC LIMIT 30;"); // Делаем выборку данных из таблицы
-    /* Устанавливаем названия колонок в таблице с сортировкой данных
+    model->setQuery("SELECT " HISTORY_TYP "," HISTORY_PRICE "," HISTORY_VOLUME "," HISTORY_YEAR "," HISTORY_OIL "," HISTORY_RESULT "," HISTORY_RESULTEUR " FROM " HISTORY " ORDER BY id DESC LIMIT 30;"); // Делаем выборку данных из таблицы
+       /* Устанавливаем названия колонок в таблице с сортировкой данных
      * */
     QStringList headers;
           headers << tr("Транспорт")
                   << tr("Ціна")
                   << tr("Об'єм")
-                  << tr("Вага")
                   << tr("Рік")
                   << tr("Тип палива")
                   << tr("Результат")

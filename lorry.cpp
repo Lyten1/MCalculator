@@ -6,9 +6,9 @@ Lorry::Lorry()
 
 }
 
-void Lorry::getData(float _cina, float _val, float _volume, QString _typ_oil, float _weight, int _year, bool _eur_1)
+void Lorry::setData(float _cina, QString _val, float _volume, QString _typ_oil, float _weight, float _year, bool _eur_1)
 {
-    Vehicle::getData(_cina,_val,_year);
+    Vehicle::setData(_cina,_val,_year);
     volume = _volume;
     typ_oil = _typ_oil;
     weight = _weight;
@@ -18,7 +18,7 @@ void Lorry::getData(float _cina, float _val, float _volume, QString _typ_oil, fl
 
 void Lorry::Calculate()
 {
-     Vehicle::getYear();
+     Vehicle::setYear();
 
     // ------------- Ставка мито ---------------
     if (typ_oil == "Бензиновий") {
@@ -64,10 +64,10 @@ void Lorry::Calculate()
 
 
     // --------------- Розрахунки ---------------
-    cina_g = cina * val;
     muto = cina * st_muto;
-    acc = volume * st_acc * val;
+    acc = volume * st_acc * val_eur;
     pdv = (cina_g + muto + acc) * 0.2;
     result_clear = muto + acc + pdv;
-    res_grn = result_clear + cina_g;
+    res_eur = result_clear / val_eur;
+    res_usd = result_clear / val_usd;
 }

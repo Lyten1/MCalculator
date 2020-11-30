@@ -5,7 +5,6 @@
 
 class Bus: public Vehicle
 {
-    friend class MainWindow;
 protected:
 
     QString typ_oil;
@@ -13,7 +12,7 @@ protected:
     float volume;
 public:
     Bus();
-    void getData(float _cina, float _val, float _volume, QString _typ_oil, int _year, bool _eur_1);
+    void setData(float _cina, QString _val, float _volume, QString _typ_oil, float _year, bool _eur_1);
     void Calculate();
 };
 

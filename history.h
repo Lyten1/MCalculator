@@ -6,7 +6,7 @@
 #include <QDateTime>
 
 #include "database.h"
-//#include <mainwindow.h>
+
 
 namespace Ui {
 class History;
@@ -27,8 +27,6 @@ public:
 
 private:
     Ui::History *ui;
-
-    friend class QMainWindow;
 
     DataBase        *db;
     QSqlQueryModel  *model;

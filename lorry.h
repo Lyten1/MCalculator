@@ -2,9 +2,9 @@
 #define LORRY_H
 #include <vehicle.h>
 
+
 class Lorry: public Vehicle
 {
-    friend class MainWindow;
 protected:
     float volume;
     float weight;
@@ -12,7 +12,7 @@ protected:
     bool eur_1;
 public:
     Lorry();
-    void getData(float _cina, float _val, float _volume, QString _typ_oil, float _weight, int _year, bool _eur_1);
+    void setData(float _cina, QString _val, float _volume, QString _typ_oil, float _weight, float _year, bool _eur_1);
 
     void Calculate();
 };

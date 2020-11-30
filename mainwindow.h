@@ -8,7 +8,7 @@
 
 #include "database.h"
 #include <history.h>
-#include <currency.h>
+#include "currency.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,6 +21,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+signals:
+    void create();
 
 private slots:
     void on_BCcalc_clicked();
@@ -56,13 +59,17 @@ private slots:
 
 
 private:
-    float val_t;
+
+    void Output_data(Vehicle *Obj);
+
     Ui::MainWindow *ui;
     History *sWindow;
     Currency *vWindow;
 
     DataBase        *db;
     QSqlTableModel  *model;
+
+
 
 
 

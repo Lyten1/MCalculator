@@ -1458,7 +1458,7 @@
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>310</y>
+      <y>300</y>
       <width>16</width>
       <height>21</height>
      </rect>
@@ -1495,8 +1495,8 @@
    <widget class="QLineEdit" name="Eresult">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>270</y>
+      <x>40</x>
+      <y>300</y>
       <width>101</width>
       <height>21</height>
      </rect>
@@ -1553,16 +1553,16 @@
    <widget class="QLabel" name="Lresult">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>270</y>
-      <width>101</width>
+      <x>160</x>
+      <y>260</y>
+      <width>121</width>
       <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>MS Reference Sans Serif</family>
-      <pointsize>11</pointsize>
+      <pointsize>13</pointsize>
      </font>
     </property>
     <property name="text">
@@ -1599,7 +1599,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>310</y>
+      <y>300</y>
       <width>16</width>
       <height>21</height>
      </rect>
@@ -1618,7 +1618,7 @@
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>310</y>
+      <y>300</y>
       <width>101</width>
       <height>21</height>
      </rect>
@@ -1650,7 +1650,7 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>310</y>
+      <y>300</y>
       <width>101</width>
       <height>21</height>
      </rect>
@@ -1662,8 +1662,8 @@
    <widget class="QLabel" name="Lgrn">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>310</y>
+      <x>20</x>
+      <y>300</y>
       <width>16</width>
       <height>21</height>
      </rect>
@@ -1676,19 +1676,6 @@
     </property>
     <property name="text">
      <string>₴</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="Egrn">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>310</y>
-      <width>101</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -1779,7 +1766,6 @@
   <tabstop>Eacc</tabstop>
   <tabstop>Epdv</tabstop>
   <tabstop>Eresult</tabstop>
-  <tabstop>Egrn</tabstop>
   <tabstop>Eusd</tabstop>
   <tabstop>Eeur</tabstop>
  </tabstops>

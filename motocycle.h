@@ -10,7 +10,7 @@ class Motocycle: public Vehicle
     bool eur_1;
 public:
     Motocycle();
-    void getData(float _cina, float _val, float _volume, QString _typ_oil, bool _eur_1);
+    void setData(float _cina, QString _val, float _volume, QString _typ_oil, bool _eur_1);
     void Calculate();
 };
 

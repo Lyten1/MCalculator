@@ -5,9 +5,9 @@ Hauler::Hauler()
 
 }
 
-void Hauler::getData(float _cina, float _val, QString _use, bool _eur_1)
+void Hauler::setData(float _cina, QString _val, QString _use, bool _eur_1)
 {
-    Vehicle::getData(_cina,_val,NULL);
+    Vehicle::setData(_cina,_val,NULL);
     eur_1 = _eur_1;
     use = _use;
 }
@@ -23,11 +23,11 @@ void Hauler::Calculate()
     }
     // --------------- Розрахунки ---------------
 
-    cina_g = cina * val;
     muto = cina_g * st_muto;
     acc = 0;
     pdv = (cina_g + muto + acc) * 0.2;
     result_clear = muto + acc + pdv;
-    res_grn = result_clear + cina_g;
+    res_eur = result_clear / val_eur;
+    res_usd = result_clear / val_usd;
 
 }

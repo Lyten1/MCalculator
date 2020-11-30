@@ -10,7 +10,7 @@ class Hauler: public Vehicle
 
 public:
     Hauler();
-    void getData(float _cina, float _val, QString _use, bool _eur_1);
+    void setData(float _cina, QString _val, QString _use, bool _eur_1);
     void Calculate();
 
 };

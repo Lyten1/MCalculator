@@ -75,31 +75,58 @@ bool DataBase::createTable()
      * */
     QSqlQuery query;
     if(!query.exec( "CREATE TABLE " HISTORY " ("
-                            "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                            HISTORY_TYP        " VARCHAR(255)    NOT NULL,"
-                            HISTORY_PRICE      " VARCHAR(255)    NOT NULL,"
-                            HISTORY_VOLUME     " VARCHAR(255)    NOT NULL,"
-                            HISTORY_WEIGHT     " VARCHAR(255)    NOT NULL,"
-                            HISTORY_YEAR       " VARCHAR(255)    NOT NULL,"
-                            HISTORY_OIL        " VARCHAR(255)    NOT NULL,"
-                            HISTORY_RESULT     " VARCHAR(255)    NOT NULL,"
-                            HISTORY_RESULTEUR  " VARCHAR(255)    NOT NULL"
-                        " );"
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    HISTORY_TYP        " VARCHAR(255)    NOT NULL,"
+                    HISTORY_PRICE      " VARCHAR(255)    NOT NULL,"
+                    HISTORY_VOLUME     " VARCHAR(255)    NOT NULL,"
+                    HISTORY_YEAR       " VARCHAR(255)    NOT NULL,"
+                    HISTORY_OIL        " VARCHAR(255)    NOT NULL,"
+                    HISTORY_RESULT     " VARCHAR(255)    NOT NULL,"
+                    HISTORY_RESULTEUR  " VARCHAR(255)    NOT NULL"
+                    " );"
                     )){
         qDebug() << "DataBase: error of create " << HISTORY;
         qDebug() << query.lastError().text();
         return false;
-    } else {
-        return true;
     }
-    return false;
+    if(!query.exec( "CREATE TABLE " CURRENCY " ("
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    CURRENCY_CODE        " VARCHAR(255)  NOT NULL, "
+                    CURRENCY_NAME      " VARCHAR(255)  NOT NULL, "
+                    CURRENCY_RATE     " VARCHAR(255)  NOT NULL"
+                    " );"
+                    )){
+        qDebug() << "DataBase: error of create " << CURRENCY;
+        qDebug() << query.lastError().text();
+        qDebug() << query.lastQuery();
 
+        return false;
+    }
+
+    return true;
+
+
+}
+
+void DataBase::clearCur()
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM " CURRENCY " ;");
+
+
+    // После чего выполняется запросом методом exec()
+    if(!query.exec()){
+        qDebug() << "error insert into" << CURRENCY;
+        qDebug() << query.lastError().text();
+        qDebug() << query.lastQuery();
+
+    } ;
 
 }
 
 /* Метод для вставки записи в базу данных
  * */
-bool DataBase::inserIntoTable(const QVariantList &data)
+bool DataBase::inserIntoTable_H(const QVariantList &data)
 {
     /* Запрос SQL формируется из QVariantList,
      * в который передаются данные для вставки в таблицу.
@@ -110,27 +137,55 @@ bool DataBase::inserIntoTable(const QVariantList &data)
      * для подстановки данных из QVariantList
      * */
     query.prepare("INSERT INTO " HISTORY " ( " HISTORY_TYP ", "
-                                             HISTORY_PRICE ", "
-                                             HISTORY_VOLUME ", "
-                                             HISTORY_WEIGHT ", "
-                                             HISTORY_YEAR", "
-                                             HISTORY_OIL ", "
-                                             HISTORY_RESULT ", "
-                                             HISTORY_RESULTEUR " ) "
-                  "VALUES (:Type, :Price,  :Volume, :Weight, :Year, :Oil, :Result, :ResultEur );");
+                  HISTORY_PRICE ", "
+                  HISTORY_VOLUME ", "
+                  HISTORY_YEAR", "
+                  HISTORY_OIL ", "
+                  HISTORY_RESULT ", "
+                  HISTORY_RESULTEUR " ) "
+                                    "VALUES (:Type, :Price,  :Volume, :Year, :Oil, :Result, :ResultEur );");
     query.bindValue(":Type",         data[0].toString());
     query.bindValue(":Price",        data[1].toString());
     query.bindValue(":Volume",       data[2].toString());
-    query.bindValue(":Weight",       data[3].toString());
-    query.bindValue(":Year",         data[4].toString());
-    query.bindValue(":Oil",          data[5].toString());
-    query.bindValue(":Result",       data[6].toString());
-    query.bindValue(":ResultEur",    data[7].toString());
+    query.bindValue(":Year",         data[3].toString());
+    query.bindValue(":Oil",          data[4].toString());
+    query.bindValue(":Result",       data[5].toString());
+    query.bindValue(":ResultEur",    data[6].toString());
     // После чего выполняется запросом методом exec()
     if(!query.exec()){
         qDebug() << "error insert into" << HISTORY;
         qDebug() << query.lastError().text();
         qDebug() << query.lastQuery();
+        return false;
+    } else {
+        return true;
+    }
+    return false;
+}
+
+bool DataBase::inserIntoTable_C(const QVariantList &data)
+{
+    /* Запрос SQL формируется из QVariantList,
+     * в который передаются данные для вставки в таблицу.
+     * */
+    QSqlQuery query;
+    /* В начале SQL запрос формируется с ключами,
+     * которые потом связываются методом bindValue
+     * для подстановки данных из QVariantList
+     * */
+    query.prepare("INSERT INTO " CURRENCY " ( " CURRENCY_CODE ", "
+                  CURRENCY_NAME ", "
+                  CURRENCY_RATE " ) "
+                                "VALUES (:Code, :Name, :Rate);");
+    query.bindValue(":Code",         data[0].toString());
+    query.bindValue(":Name",         data[1].toString());
+    query.bindValue(":Rate",         data[2].toString());
+
+    // После чего выполняется запросом методом exec()
+    if(!query.exec()){
+        qDebug() << "error insert into" << CURRENCY;
+        qDebug() << query.lastError().text();
+        // qDebug() << query.lastQuery();
         return false;
     } else {
         return true;

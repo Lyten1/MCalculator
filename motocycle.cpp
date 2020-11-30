@@ -5,9 +5,9 @@ Motocycle::Motocycle()
 
 }
 
-void Motocycle::getData(float _cina, float _val, float _volume, QString _typ_oil, bool _eur_1)
+void Motocycle::setData(float _cina, QString _val, float _volume, QString _typ_oil, bool _eur_1)
 {
-    Vehicle::getData(_cina,_val,NULL);
+    Vehicle::setData(_cina,_val,NULL);
     volume = _volume;
     typ_oil = _typ_oil;
     eur_1 = _eur_1;
@@ -26,15 +26,16 @@ void Motocycle::Calculate()
 
 
     // --------------- Розрахунки ---------------
-    cina_g = cina * val;
+
     muto = cina_g * st_muto;
 
     if (typ_oil == "Бензиновий") acc = volume * st_acc;
-    else acc = 22 * val;
+    else acc = 22 * val_eur;
 
     pdv = (cina_g + muto + acc) * 0.2;
     result_clear = muto + acc + pdv;
-    res_grn = result_clear + cina_g;
+    res_eur = result_clear / val_eur;
+    res_usd = result_clear / val_usd;
 }
 
 

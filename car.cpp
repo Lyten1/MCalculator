@@ -6,19 +6,19 @@ Car::Car()
 
 }
 
-void Car::getData(float _cina, float _val, float _volume, QString _typ_oil, QString _typ_oil_elec, int _date_first_reg, int _dateOfCreate, bool _eur_1)
+void Car::setData(float _cina, QString _val, float _volume, QString _typ_oil, QString _typ_oil_elec, float _date_first_reg, float _dateOfCreate, bool _eur_1)
 {
-    Vehicle::getData(_cina,_val,NULL);
+    Vehicle::setData(_cina,_val,NULL);
     volume = _volume;
     typ_oil = _typ_oil;
     date_first_reg = _date_first_reg;
     dateOfCreate = _dateOfCreate;
     eur_1 = _eur_1;
     typ_oil_elec = _typ_oil_elec;
-    Car::getYears();
+    Car::setAge();
 }
 
-void Car::getYears()
+void Car::setAge()
 {
     QDate date = QDate::currentDate();
     date_first_reg = date.year() - date_first_reg;
@@ -123,18 +123,19 @@ void Car::Calculate()
 
 
     // --------------- Розрахунки ---------------
-    cina_g = cina * val;
 
     muto = cina_g * st_muto;
+
     if (typ_oil == "Електричний"){
-        acc = volume * st_acc * val; // val -> eur
+        acc = volume * st_acc * val_eur;
     }
     else if ((typ_oil == "Гібрид" && typ_oil_elec == "Елек з д.в.з. для генератора") || typ_oil == "Інший"){
-        acc = 100 * val; // val -> eur
+        acc = 100 * val_eur;
     }
-    else acc = volume/1000 * st_acc * koef * val; // val -> eur
+    else acc = volume/1000 * st_acc * koef * val_eur;
 
     pdv = (cina_g + muto + acc) * 0.2;
     result_clear = muto + acc + pdv;
-    res_grn = result_clear + cina_g;
+    res_eur = result_clear / val_eur;
+    res_usd = result_clear / val_usd;
 }

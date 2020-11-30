@@ -6,9 +6,9 @@ Bus::Bus()
 
 }
 
-void Bus::getData(float _cina, float _val, float _volume, QString _typ_oil, int _year, bool _eur_1)
+void Bus::setData(float _cina, QString _val, float _volume, QString _typ_oil, float _year, bool _eur_1)
 {
-    Vehicle::getData(_cina,_val,_year);
+    Vehicle::setData(_cina,_val,_year);
     volume = _volume;
     typ_oil = _typ_oil;
     eur_1 = _eur_1;
@@ -16,7 +16,7 @@ void Bus::getData(float _cina, float _val, float _volume, QString _typ_oil, int 
 
 void Bus::Calculate()
 {
-    Vehicle::getYear();
+    Vehicle::setYear();
 
     // ------------- Ставка мито ---------------
     if (typ_oil == "Електро"){
@@ -80,12 +80,13 @@ void Bus::Calculate()
 
 
 
-    cina_g = cina * val; // замість валюти поточна вибрана
+
     muto = cina_g * st_muto;
-    acc = volume * st_acc * val; // замість валюти євро
+    acc = volume * st_acc * val_eur; // замість валюти євро
     pdv = (cina_g + muto + acc) * 0.2;
     result_clear = muto + acc + pdv;
-    res_grn = result_clear + cina_g;
+    res_eur = result_clear / val_eur;
+    res_usd = result_clear / val_usd;
 
 
 }
