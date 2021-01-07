@@ -24,6 +24,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     bus.cpp \
     car.cpp \
+    convertor.cpp \
     currency.cpp \
     database.cpp \
     hauler.cpp \
@@ -38,6 +39,7 @@ SOURCES += \
 HEADERS += \
     bus.h \
     car.h \
+    convertor.h \
     currency.h \
     database.h \
     hauler.h \
@@ -49,6 +51,7 @@ HEADERS += \
     vehicle.h
 
 FORMS += \
+    convertor.ui \
     currency.ui \
     history.ui \
     mainwindow.ui

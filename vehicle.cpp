@@ -32,7 +32,7 @@ void Vehicle::setData(float _cina, QString _val, float _year)
     cina_g = cina * main_val; // замість валюти поточна вибрана
 }
 
-void Vehicle::setYear(){
+void Vehicle::setAge(){
     QDate date = QDate::currentDate();
     year = date.year() - year;
 }

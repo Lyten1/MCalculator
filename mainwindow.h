@@ -9,6 +9,7 @@
 #include "database.h"
 #include <history.h>
 #include "currency.h"
+#include "convertor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -58,6 +59,8 @@ private slots:
 
 
 
+    void on_action_convert_triggered();
+
 private:
 
     void Output_data(Vehicle *Obj);
@@ -65,9 +68,10 @@ private:
     Ui::MainWindow *ui;
     History *sWindow;
     Currency *vWindow;
+    convertor *cWindow;
 
     DataBase        *db;
-    QSqlTableModel  *model;
+    QSqlQueryModel  *model;
 
 
 

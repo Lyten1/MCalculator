@@ -16,7 +16,7 @@ void Bus::setData(float _cina, QString _val, float _volume, QString _typ_oil, fl
 
 void Bus::Calculate()
 {
-    Vehicle::setYear();
+    Vehicle::setAge();
 
     // ------------- Ставка мито ---------------
     if (typ_oil == "Електро"){

@@ -1690,10 +1690,11 @@
    </property>
    <widget class="QMenu" name="menuMCalculator">
     <property name="title">
-     <string>File</string>
+     <string>Файл</string>
     </property>
     <addaction name="action_h"/>
     <addaction name="action_val"/>
+    <addaction name="action_convert"/>
    </widget>
    <addaction name="menuMCalculator"/>
   </widget>
@@ -1706,6 +1707,11 @@
   <action name="action_h">
    <property name="text">
     <string>Історія</string>
+   </property>
+  </action>
+  <action name="action_convert">
+   <property name="text">
+    <string>Конвертатор</string>
    </property>
   </action>
  </widget>

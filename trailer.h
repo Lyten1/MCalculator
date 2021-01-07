@@ -10,7 +10,7 @@ class Trailer: public Vehicle
    QString typ;
 public:
     Trailer();
-    void setData(float _cina, QString _val, float _weight, bool _eur_1, QString _use);
+    void setData(float _cina, QString _val, float _weight, bool _eur_1, QString _typ);
     void Calculate();
 };
 

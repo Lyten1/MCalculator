@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "convertor.h"
 
 
 #include <QApplication>

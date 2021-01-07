@@ -31,7 +31,7 @@ private slots:
         void setupModel(const QString &tableName, const QStringList &headers);
         void createUI();
 
-protected:
+
 
 
 private:

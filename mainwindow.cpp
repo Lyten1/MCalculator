@@ -10,6 +10,7 @@
 #include <trailer.h>
 #include <currency.h>
 #include <history.h>
+#include <convertor.h>
 
 
 
@@ -26,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     sWindow = new History();
     vWindow = new Currency();
+    cWindow = new convertor();
 
 
 
@@ -291,4 +293,9 @@ void MainWindow::Output_data(Vehicle *Obj)
     ui->Eresult->setText(QString::number(Obj->getResult()));
     ui->Eeur->setText(QString::number(Obj->getResult_Eur()));
     ui->Eusd->setText(QString::number(Obj->getResult_Usd()));
+}
+
+void MainWindow::on_action_convert_triggered()
+{
+    cWindow->show();
 }

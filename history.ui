@@ -38,7 +38,7 @@
    <bool>false</bool>
   </property>
   <property name="windowTitle">
-   <string>History</string>
+   <string>Історія</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTableView" name="tableOfHist">

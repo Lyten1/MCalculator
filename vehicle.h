@@ -14,14 +14,14 @@ protected:
      QString val;
      static float  val_eur, val_usd, val_pln, val_chf;
 
-
 public:
+     friend class convertor;
 
-    Vehicle();
-    void setData(float _cina, QString _val, float _year);
-    void setYear();
-    void setCurs(float temp_eur, float temp_usd, float temp_pln, float temp_chf);
-    void checkVal();
+     Vehicle();
+     void setData(float _cina, QString _val, float _year);
+     void setAge();
+     void setCurs(float temp_eur, float temp_usd, float temp_pln, float temp_chf);
+     void checkVal();
 
     float getMuto();
     float getAcc();
@@ -29,6 +29,7 @@ public:
     float getResult();
     float getResult_Eur();
     float getResult_Usd();
+
 
 };
 
