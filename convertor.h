@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QPainter>
 
+#include "vehicle.h"
+
 
 
 namespace Ui {

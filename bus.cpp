@@ -29,17 +29,17 @@ void Bus::Calculate()
     }
     else {
         if (volume <= 5000){
-                    if (eur_1 == 1){
-                        st_muto = 0.0038;
-                    }
-                    else st_muto = 0.1;
-                }
+            if (eur_1 == 1){
+                st_muto = 0.0038;
+            }
+            else st_muto = 0.1;
+        }
         else if (volume > 5000){
-                    if (eur_1 == 1){
-                        st_muto = 0.0075;
-                     }
-                    else st_muto = 0.2;
-                }
+            if (eur_1 == 1){
+                st_muto = 0.0075;
+            }
+            else st_muto = 0.2;
+        }
     }
 
     // ------------- Ставка акцизу -------------
@@ -72,9 +72,9 @@ void Bus::Calculate()
         }
     }
     else if (typ_oil == "Бензин" || typ_oil == "Бензин/електро"){
-            if (year == 0) st_acc = 0.003;
-            else if (year <= 8) st_acc = 0.007;
-            else if (year > 8) st_acc = 0.35;
+        if (year == 0) st_acc = 0.003;
+        else if (year <= 8) st_acc = 0.007;
+        else if (year > 8) st_acc = 0.35;
     }
     else st_acc = 0;
 

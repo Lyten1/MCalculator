@@ -18,7 +18,7 @@ void Lorry::setData(float _cina, QString _val, float _volume, QString _typ_oil, 
 
 void Lorry::Calculate()
 {
-     Vehicle::setAge();
+    Vehicle::setAge();
 
     // ------------- Ставка мито ---------------
     if (typ_oil == "Бензиновий") {

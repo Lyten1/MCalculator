@@ -7,9 +7,16 @@
 
 
 #include "database.h"
+#include <vehicle.h>
+#include <car.h>
+#include <lorry.h>
+#include <bus.h>
+#include <motocycle.h>
+#include <hauler.h>
+#include <trailer.h>
+#include <currency.h>
 #include <history.h>
-#include "currency.h"
-#include "convertor.h"
+#include <convertor.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

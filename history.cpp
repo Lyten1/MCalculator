@@ -1,5 +1,4 @@
 #include "history.h"
-#include <database.h>
 #include "ui_history.h"
 
 History::History(QWidget *parent) :
@@ -10,13 +9,13 @@ History::History(QWidget *parent) :
 
     this->setupModel(HISTORY,
                      QStringList() << tr("Транспорт")
-                                   << tr("Ціна")
-                                   << tr("Об'єм")
-                                   << tr("Рік")
-                                   << tr("Тип палива")
-                                   << tr("Результат")
-                                   << tr("Рез. у євро")
-               );
+                     << tr("Ціна")
+                     << tr("Об'єм")
+                     << tr("Рік")
+                     << tr("Тип палива")
+                     << tr("Результат")
+                     << tr("Рез. у євро")
+                     );
 
 
     this->createUI();
@@ -65,16 +64,16 @@ void History::createUI()
 void History::Update()
 {
     model->setQuery("SELECT " HISTORY_TYP "," HISTORY_PRICE "," HISTORY_VOLUME "," HISTORY_YEAR "," HISTORY_OIL "," HISTORY_RESULT "," HISTORY_RESULTEUR " FROM " HISTORY " ORDER BY id DESC LIMIT 30;"); // Делаем выборку данных из таблицы
-       /* Устанавливаем названия колонок в таблице с сортировкой данных
+    /* Устанавливаем названия колонок в таблице с сортировкой данных
      * */
     QStringList headers;
-          headers << tr("Транспорт")
-                  << tr("Ціна")
-                  << tr("Об'єм")
-                  << tr("Рік")
-                  << tr("Тип палива")
-                  << tr("Результат")
-                  << tr("Рез. у євро");
+    headers << tr("Транспорт")
+            << tr("Ціна")
+            << tr("Об'єм")
+            << tr("Рік")
+            << tr("Тип палива")
+            << tr("Результат")
+            << tr("Рез. у євро");
 
     for(int i = 0, j = 0; i < model->columnCount(); i++, j++){
         model->setHeaderData(i,Qt::Horizontal,headers[j]);

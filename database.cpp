@@ -1,5 +1,5 @@
 #include "database.h"
-#include <history.h>
+
 
 DataBase::DataBase(QObject *parent) : QObject(parent)
 {

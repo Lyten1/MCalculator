@@ -17,8 +17,8 @@ void Trailer::Calculate()
 {
     // ------------- Ставка мито --------------
 
-        if (eur_1 == 1) st_muto = 0;
-        else st_muto  = 0.1;
+    if (eur_1 == 1) st_muto = 0;
+    else st_muto  = 0.1;
 
 
     // --------------- Розрахунки ---------------

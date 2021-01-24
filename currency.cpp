@@ -2,13 +2,7 @@
 #include "ui_currency.h"
 
 
-#include <QDebug>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QUrlQuery>
-#include <QNetworkReply>
-#include <QUrl>
+
 
 
 
@@ -29,10 +23,10 @@ Currency::Currency(QWidget *parent) :
     ui->setupUi(this);
     this->setupModel(CURRENCY,
                      QStringList() << tr("Код")
-                                   << tr("Назва")
-                                   << tr("Курс")
+                     << tr("Назва")
+                     << tr("Курс")
 
-               );
+                     );
 
 
     this->createUI();
@@ -87,9 +81,9 @@ void Currency::Update()
     /* Устанавливаем названия колонок в таблице с сортировкой данных
      * */
     QStringList headers;
-          headers << tr("Код")
-                  << tr("Назва")
-                  << tr("Курс");
+    headers << tr("Код")
+            << tr("Назва")
+            << tr("Курс");
 
     for(int i = 0, j = 0; i < model_1->columnCount(); i++, j++){
         model_1->setHeaderData(i,Qt::Horizontal,headers[j]);
@@ -115,21 +109,21 @@ void Currency::onResult(QNetworkReply *reply)
 
         for (int i = 0; i < root.size(); i++) {
             QVariantList data;
-                    data.append(QString("%1").arg(root[i].toObject().value("r030").toDouble()));
-                    data.append(root[i].toObject().value("txt").toString());
-                    data.append(QString("%1").arg(root[i].toObject().value("rate").toDouble()));
+            data.append(QString("%1").arg(root[i].toObject().value("r030").toDouble()));
+            data.append(root[i].toObject().value("txt").toString());
+            data.append(QString("%1").arg(root[i].toObject().value("rate").toDouble()));
 
-                    if (data[0].toString() == "978") temp_eur = data[2].toFloat();//eur
-                    if (data[0].toString() == "985") temp_pln = data[2].toFloat();//pln
-                    if (data[0].toString() == "840") temp_usd = data[2].toFloat();//usd
-                    if (data[0].toString() == "756") temp_chf = data[2].toFloat();//chf
+            if (data[0].toString() == "978") temp_eur = data[2].toFloat();//eur
+            if (data[0].toString() == "985") temp_pln = data[2].toFloat();//pln
+            if (data[0].toString() == "840") temp_usd = data[2].toFloat();//usd
+            if (data[0].toString() == "756") temp_chf = data[2].toFloat();//chf
 
-                    // Вставляем данные в БД
-                    db->inserIntoTable_C(data);
+            // Вставляем данные в БД
+            db->inserIntoTable_C(data);
         }
 
 
-}
+    }
     else qDebug() << "No network connection";
 
     car_curs = new Vehicle;

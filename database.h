@@ -11,6 +11,8 @@
 #include <QDate>
 #include <QDebug>
 
+#include <history.h>
+
 /* Директивы имен таблицы, полей таблицы и базы данных */
 #define DATABASE_HOSTNAME   "HostDataBase"
 #define DATABASE_NAME       "DataBase.db"

@@ -1,5 +1,5 @@
 #include "car.h"
-#include <QDate>
+
 
 Car::Car()
 {

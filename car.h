@@ -2,6 +2,8 @@
 #define CAR_H
 #include <vehicle.h>
 
+#include <QDate>
+
 
 class Car: public Vehicle
 {

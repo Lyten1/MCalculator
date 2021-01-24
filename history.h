@@ -27,8 +27,6 @@ public:
 
 private:
     Ui::History *ui;
-
-    DataBase        *db;
     QSqlQueryModel  *model;
 };
 

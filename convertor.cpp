@@ -1,7 +1,7 @@
 #include "convertor.h"
 #include "ui_convertor.h"
 
-#include "vehicle.h"
+
 
 convertor::convertor(QWidget *parent) :
     QMainWindow(parent),
@@ -20,17 +20,17 @@ void convertor::paintEvent(QPaintEvent *e)
 {
     Q_UNUSED(e);
 
-     QPainter qp(this);
-     drawLines(&qp);
+    QPainter qp(this);
+    drawLines(&qp);
 }
 
 void convertor::drawLines(QPainter *qp)
 {
     QPen pen(Qt::black, 6, Qt::SolidLine);
-     qp->setPen(pen);
-     qp->drawLine(160, 60, 160, 90);
-     qp->drawLine(160, 93, 150, 85);
-     qp->drawLine(161, 93, 170, 85);
+    qp->setPen(pen);
+    qp->drawLine(160, 60, 160, 90);
+    qp->drawLine(160, 93, 150, 85);
+    qp->drawLine(161, 93, 170, 85);
 }
 
 

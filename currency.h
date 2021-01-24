@@ -4,9 +4,18 @@
 #include <QMainWindow>
 #include <QFile>
 #include <QNetworkAccessManager>
-#include <database.h>
 #include <QSqlQueryModel>
+
 #include <vehicle.h>
+#include <database.h>
+
+#include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QUrlQuery>
+#include <QNetworkReply>
+#include <QUrl>
 
 
 
@@ -27,9 +36,9 @@ public:
 
 private slots:
     // Обработчик данных полученных от объекта QNetworkAccessManager
-        void onResult(QNetworkReply *reply);
-        void setupModel(const QString &tableName, const QStringList &headers);
-        void createUI();
+    void onResult(QNetworkReply *reply);
+    void setupModel(const QString &tableName, const QStringList &headers);
+    void createUI();
 
 
 
