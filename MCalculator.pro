@@ -73,4 +73,9 @@ macx:OBJECTS_DIR = mac
 # If release-buid -> run windeploy applications, that will collect all the dlls
 CONFIG(release, debug|release) {
     win32:QMAKE_POST_LINK = $$(QTDIR)/bin/windeployqt $$OUT_PWD/release
+    win32:QMAKE_POST_LINK += $$quote(copy C:/MinGW/bin/libgcc_s_seh-1.dll $$OUT_PWD/release)
+    win32:QMAKE_POST_LINK += $$quote(copy C:/MinGW/bin/libstdc++-6.dll $$OUT_PWD/release)
+    # win32:QMAKE_POST_LINK += $$quote($$(QTDIR)/bin/windeployqt $$OUT_PWD/release)
 }
+
+
